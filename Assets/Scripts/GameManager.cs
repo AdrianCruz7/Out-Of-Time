@@ -5,24 +5,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    float playerTimeTest = 100;
+    public static GameManager Instance { get; private set; }
     [SerializeField] TextMeshProUGUI time;
+    [SerializeField] PlayerController playerController;
 
-    // Update is called once per frame
     void Update()
     {
-        DisplayTime();
-
-        if(playerTimeTest > 0)
+        if (Instance == null)
         {
-            playerTimeTest -= Time.deltaTime;
-        }    
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DisplayTime();  
     }
 
     void DisplayTime()
     {
-        float minutes = Mathf.FloorToInt(playerTimeTest / 60);
-        float seconds = Mathf.FloorToInt(playerTimeTest % 60);
+        float minutes = Mathf.FloorToInt(playerController.playerTime / 60);
+        float seconds = Mathf.FloorToInt(playerController.playerTime % 60);
 
         time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
