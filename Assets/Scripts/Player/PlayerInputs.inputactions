@@ -114,6 +114,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PlayerActions",
+            "id": "339f979b-1350-4bfa-acf6-f32ba5af616a",
+            "actions": [
+                {
+                    "name": "ActivateItem",
+                    "type": "Button",
+                    "id": "e9fb76de-30da-4cd7-90dd-1d779ab3c30b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6dbe0034-9d06-40aa-8a85-7bb49fddf6d6",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84e26bf9-51cd-4105-9d55-04d9f44dfc1b",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

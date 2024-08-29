@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
     public event Action<Vector2> OnMovePerformed;
     public event Action<Vector2> OnMoveCancelled;
     public event Action OnRoll;
+    public event Action OnActivateItem;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class InputManager : MonoBehaviour
         inputActions.Movement.Move.performed += SignalMovePerformed;
         inputActions.Movement.Move.canceled += SignalMoveCancelled;
         inputActions.Movement.Roll.performed += SignalRoll;
+        inputActions.PlayerActions.ActivateItem.performed += SignalActivateItem;
     }
 
     void OnEnable()
@@ -63,5 +65,10 @@ public class InputManager : MonoBehaviour
     void SignalRoll(InputAction.CallbackContext context)
     {
         OnRoll?.Invoke();
+    }
+
+    void SignalActivateItem(InputAction.CallbackContext context)
+    {
+        OnActivateItem?.Invoke();
     }
 }
